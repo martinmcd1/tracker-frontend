@@ -16,7 +16,7 @@ let axiosConfig = {
 
 if (process.env.NODE_ENV === 'production') {
   axiosConfig = {
-    baseURL: 'https://nullorwhitespace.s1.umbraco.io/',
+    baseURL: 'http://sm-umbraco-rest.azurewebsites.net/',
     debug: false
   };
 }
@@ -25,8 +25,8 @@ const config = {
   mode: 'universal',
 
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: pkg.name,
     meta: [
@@ -52,31 +52,31 @@ const config = {
   },
 
   /*
-  ** Customize the progress-bar color
-  */
+   ** Customize the progress-bar color
+   */
   loading: { color: '#26de81' },
 
   /*
-  ** Global CSS
-  */
+   ** Global CSS
+   */
   css: ['~/assets/css/tailwind.css'],
 
   /*
-  ** Plugins to load before mounting the App
-  */
+   ** Plugins to load before mounting the App
+   */
   plugins: [{ src: '@/plugins/axios.js', ssr: false }, '@/plugins/components'],
 
   /*
-  ** Nuxt.js modules
-  */
+   ** Nuxt.js modules
+   */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios'
   ],
 
   /*
-  ** Axios module configuration
-  */
+   ** Axios module configuration
+   */
   axios: axiosConfig,
 
   env: {
@@ -84,24 +84,25 @@ const config = {
   },
 
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     postcss: [
       require('postcss-import'),
       require('tailwindcss')('./tailwind.js'),
       require('autoprefixer')
     ],
+    transpile: ['./server.js'],
 
     /*
-    ** You can extend webpack config here
-    */
+     ** You can extend webpack config here
+     */
     extend(config, ctx) {}
   },
 
   /*
-  ** Generate configuration
-  */
+   ** Generate configuration
+   */
   generate: {
     routes(callback) {
       let routes = [];
