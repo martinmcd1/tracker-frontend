@@ -11,6 +11,10 @@
     "start": "nuxt build && nuxt start",
     "generate": "cross-env NODE_ENV=production nuxt generate"
   },
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.6.0"
+  },
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
     "axios-extensions": "^3.0.3",
