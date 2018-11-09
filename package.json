@@ -7,9 +7,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt",
     "build": "cross-env NODE_ENV=production nuxt build",
-    "start": "cross-env NODE_ENV=production nuxt start",
-    "generate": "cross-env NODE_ENV=production nuxt generate",
-    "heroku-postbuild": "npm run build"
+    "start": "node server.js",
+    "generate": "cross-env NODE_ENV=production nuxt generate"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",

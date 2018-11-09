@@ -1,20 +1,21 @@
-FROM node:7.8.0-alpine
+FROM node:10.9.0-alpine
 
-# Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir -p /app
+COPY . /app
+WORKDIR /app
 
-# Install app dependencies
 RUN apk update && apk upgrade && apk add git
 
-ONBUILD COPY . /usr/src/app/
-ONBUILD RUN npm install
+COPY package.json /app
+#RUN npm rebuild
+RUN npm install
 
-# Build app
-ONBUILD RUN npm run build
+ENV NODE_ENV=production
+
+COPY . /app
+RUN npm run build
 
 ENV HOST 0.0.0.0
 EXPOSE 3000
 
-# start command
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]
