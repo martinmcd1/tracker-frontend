@@ -1,0 +1,7 @@
+.btn {
+  @include border-radius(4px);
+  background: none;
+  border: 1px solid $c-black;
+  color: $c-black;
+  padding: 15px;
+}

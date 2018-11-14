@@ -10,8 +10,7 @@ class TailwindExtractor {
 
 let axiosConfig = {
   // See https://github.com/nuxt-community/axios-module#options
-  baseURL: 'http://tracker.local/'
-  //debug: true
+  baseURL: 'http://sm-umbraco-rest.azurewebsites.net/'
 };
 
 if (process.env.NODE_ENV === 'production') {
@@ -71,7 +70,8 @@ const config = {
    */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    ['nuxt-sass-resources-loader', '@/scss/global-styles.scss']
   ],
 
   /*

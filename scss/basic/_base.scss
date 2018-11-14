@@ -1,0 +1,65 @@
+@-ms-viewport {
+  width: auto;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  -ms-overflow-style: auto !important;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  @include font-size(1.6, 2.4);
+  @include font-smoothing;
+  font-family: $f-body;
+  background: $c-black;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  @include font-size(2.6, 3.6);
+}
+h2 {
+  @include font-size(2.4, 3.2);
+}
+h3 {
+  @include font-size(2, 2.8);
+}
+h4 {
+  @include font-size(1.8, 2.6);
+}
+
+p,
+ul li,
+ol li {
+  @include font-size(1.6, 2.4);
+}
+
+p {
+  &.preamble {
+    @include font-size(2, 2.8);
+  }
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+blockquote {
+  @include font-size(2, 2.8);
+}
+
+em {
+  font-style: italic;
+}

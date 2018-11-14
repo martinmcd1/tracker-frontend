@@ -1,0 +1,17 @@
+// Just for reference, should be deleted in a build
+.hello {
+  @include centre(both);
+  color: $c-white;
+  text-align: center;
+
+  h1 {
+    font-family: arial, sans-serif;
+    font-weight: 400;
+  }
+
+  .e-logo {
+    width: 400px;
+    margin: 0 auto;
+    display: block;
+  }
+}
