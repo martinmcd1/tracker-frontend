@@ -2,11 +2,11 @@ const pkg = require('./package');
 const axios = require('axios');
 const { join } = require('path');
 
-class TailwindExtractor {
-  static extract(content) {
-    return content.match(/[A-z0-9-:\/]+/g) || [];
-  }
-}
+// class TailwindExtractor {
+//   static extract(content) {
+//     return content.match(/[A-z0-9-:\/]+/g) || [];
+//   }
+// }
 
 let axiosConfig = {
   // See https://github.com/nuxt-community/axios-module#options
@@ -46,7 +46,7 @@ const config = {
       class: 'doc'
     },
     bodyAttrs: {
-      class: 'doc'
+      class: 'body'
     }
   },
 
@@ -58,7 +58,7 @@ const config = {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/tailwind.css'],
+  // css: ['~/assets/css/tailwind.css'],
 
   /*
    ** Plugins to load before mounting the App
@@ -87,11 +87,7 @@ const config = {
    ** Build configuration
    */
   build: {
-    postcss: [
-      require('postcss-import'),
-      require('tailwindcss')('./tailwind.js'),
-      require('autoprefixer')
-    ],
+    postcss: [require('postcss-import'), require('autoprefixer')],
     transpile: ['./server.js'],
 
     /*
@@ -121,21 +117,21 @@ const config = {
   }
 };
 
-if (process.env.NODE_ENV === 'production') {
-  config.build.postcss.push(
-    require('@fullhuman/postcss-purgecss')({
-      content: ['./**/*.vue'],
-      whitelist: ['doc'],
-      whitelistPatterns: [/twitter/, /umbraco/, /github/, /linkedin/],
-      extractors: [
-        {
-          extractor: TailwindExtractor,
-          extensions: ['html', 'js', 'vue']
-        }
-      ]
-    }),
-    require('cssnano')
-  );
-}
+// if (process.env.NODE_ENV === 'production') {
+//   config.build.postcss.push(
+//     require('@fullhuman/postcss-purgecss')({
+//       content: ['./**/*.vue'],
+//       whitelist: ['doc'],
+//       whitelistPatterns: [/twitter/, /umbraco/, /github/, /linkedin/],
+//       extractors: [
+//         {
+//           extractor: TailwindExtractor,
+//           extensions: ['html', 'js', 'vue']
+//         }
+//       ]
+//     }),
+//     require('cssnano')
+//   );
+// }
 
 module.exports = config;
